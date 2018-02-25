@@ -3,28 +3,34 @@ require 'smalrubot'
 require_relative 'Scene'
 require_relative 'Scene/scene_title/director'
 require_relative 'Scene/scene_game/director'
+require_relative 'Scene/scene_game2/director'
 require_relative 'Scene/scene_gameover/director'
 
-#-----------------------
-#ゲーム画面　横800 縦600
-#------------------------
+#ゲーム名
+Window.caption = "シューティングのようなもの"
+
+#画面サイズ　横800 縦600
 Window.width = 800
 Window.height = 600
 
+#シーンの追加
 #self.add(scene_obj,scene_name)
 Scene.add(Title::Director.new, :title)
 Scene.add(Game::Director.new, :game)
+Scene.add(Game2::Director.new, :game2)
 Scene.add(Gameover::Director.new, :gameover)
 
+#Sounds
+BGM = Sound.new('./Sound/bgm.wav')
+EXPLOSION_SOUND = Sound.new('./Sound/explosion.wav')
+PLAYERSHOT_SOUND = Sound.new('./Sound/playershot.wav')
+
+
+#タイトル画面へ移行
 Scene.move_to(:title)
 
-#-----------------------
-#初期化
-#------------------------
-
-$PlayerShot = []
-#敵プレイヤー配列
-$Enemies = []
+# #敵プレイヤー配列
+# $Enemies = []
 
 
 #-----------------

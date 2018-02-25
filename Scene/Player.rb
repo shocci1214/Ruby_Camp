@@ -3,7 +3,7 @@ class Player < Sprite
         super
         self.image = Image.new(40,80).box_fill(0,0,39,79,[255,0,0,255])
         self.x = 400
-        self.y = 400
+        self.y = 500
     end
 
     def update
@@ -11,19 +11,20 @@ class Player < Sprite
         self.draw
         #矢印キーで移動（移動の制限）
         if Input.key_down?(K_LEFT) && self.x > 0
-            self.x -= 10
+            self.x -= 15
         elsif Input.key_down?(K_RIGHT) && self.x < Window.width - 40
-            self.x += 10
+            self.x += 15
         elsif Input.key_down?(K_UP) && self.y > 0
-            self.y -= 10
+            self.y -= 15
         elsif Input.key_down?(K_DOWN) && self.y < Window.height - 80
-            self.y += 10
+            self.y += 15
         end
 
         #弾の発射
         if Input.key_push?(K_Z)
             # $PlayerShot << PlayerShot.new(self.x,self.y)
             PlayerShot.get_playershot << PlayerShot.new(self.x,self.y)
+            PLAYERSHOT_SOUND.play
         end
 
     end
@@ -42,6 +43,7 @@ class PlayerShot < Sprite
     def self.get_playershot
         return @@playershot
     end
+
 
     def update
         self.draw
