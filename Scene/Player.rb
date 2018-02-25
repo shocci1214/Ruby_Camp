@@ -22,18 +22,25 @@ class Player < Sprite
 
         #弾の発射
         if Input.key_push?(K_Z)
-            $PlayerShot << PlayerShot.new(self.x,self.y)
+            # $PlayerShot << PlayerShot.new(self.x,self.y)
+            PlayerShot.get_playershot << PlayerShot.new(self.x,self.y)
         end
+
     end
 end
 
 
 class PlayerShot < Sprite
+    @@playershot = []
     def initialize(x,y)
         super
         self.image = Image.new(20,20).circle_fill(10,10,9,[255,255,255,255])
         self.x = x + 10
         self.y = y - 15
+    end
+
+    def self.get_playershot
+        return @@playershot
     end
 
     def update
@@ -44,5 +51,9 @@ class PlayerShot < Sprite
         if self.y < 0
             self.vanish
         end
+    end
+
+    def shot(obj)
+        self.vanish
     end
 end
