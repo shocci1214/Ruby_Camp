@@ -9,11 +9,15 @@ class Enemy < Sprite
 
     def update
         self.draw
-        self.y += 10
+        self.y += 5
 
         if self.y > Window.height
             self.vanish
         end
+    end
+
+    def hit(obj)
+        self.vanish
     end
 
 end
