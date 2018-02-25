@@ -14,9 +14,10 @@ module Game
 
         def initialize
             @player = Player.new
-            @timer = Timer.new(10)
+            @timer = Timer.new(30)
             @score = Score.new(0)
         end
+
 
         def play
             @player.update
@@ -33,11 +34,13 @@ module Game
             #プレイヤーの弾と敵機の衝突判定
             #衝突したとき、$PlayerShotのshotメソッドと、$enemyのhitメソッドを呼び出す
             if Sprite.check(@@playershot,$Enemies)
-                @score.score += 100
+                @score.addScore
+                EXPLOSION_SOUND.play
             end
 
             #ゲームオーバー
             if @timer.time < 0
+                BGM.stop
                 Scene.move_to(:gameover)
             end
         end

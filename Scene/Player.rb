@@ -24,6 +24,7 @@ class Player < Sprite
         if Input.key_push?(K_Z)
             # $PlayerShot << PlayerShot.new(self.x,self.y)
             PlayerShot.get_playershot << PlayerShot.new(self.x,self.y)
+            PLAYERSHOT_SOUND.play
         end
 
     end

@@ -7,7 +7,10 @@ module Title
 
         def play
             Window.draw_font(200,200,"タイトル画面です！",@font)
-            Scene.move_to(:game) if Input.key_push?(K_SPACE)
+            if Input.key_push?(K_SPACE)
+                BGM.play
+                Scene.move_to(:game)
+            end
         end
     end
 end
