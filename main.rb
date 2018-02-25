@@ -29,8 +29,8 @@ PLAYERSHOT_SOUND = Sound.new('./Sound/playershot.wav')
 #タイトル画面へ移行
 Scene.move_to(:title)
 
-#敵プレイヤー配列
-$Enemies = []
+# #敵プレイヤー配列
+# $Enemies = []
 
 
 #-----------------

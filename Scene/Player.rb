@@ -44,6 +44,7 @@ class PlayerShot < Sprite
         return @@playershot
     end
 
+
     def update
         self.draw
         self.y -= 10
