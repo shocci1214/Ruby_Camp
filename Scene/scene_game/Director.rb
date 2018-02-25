@@ -2,7 +2,6 @@ require_relative '../Player'
 require_relative '../Enemy'
 require_relative '../info/Timer'
 require_relative '../info/Score'
-require 'smalrubot'
 
 module Game
     class Director
