@@ -5,6 +5,9 @@ require_relative 'Scene/scene_title/director'
 require_relative 'Scene/scene_game/director'
 require_relative 'Scene/scene_gameover/director'
 
+#ゲーム名
+Window.caption = "シューティングのようなもの"
+
 #画面サイズ　横800 縦600
 Window.width = 800
 Window.height = 600
