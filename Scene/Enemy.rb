@@ -3,7 +3,7 @@ class Enemy < Sprite
         super
         self.image = Image.new(80,80).triangle_fill(0,0,80,0,40,40,[255,255,0,0])
         self.x = rand(Window.width)
-        self.y = 100
+        self.y = 10
 
     end
 

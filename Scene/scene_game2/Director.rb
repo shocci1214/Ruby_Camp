@@ -3,8 +3,8 @@ require_relative '../Enemy'
 require_relative '../info/Timer'
 require_relative '../info/Score'
 
-module Game
-    class Director
+module Game2
+    class Director < Game::Director
         attr_accessor :timer
         #敵の出現用変数
         @@count = 0
@@ -12,21 +12,23 @@ module Game
         @@playershot = PlayerShot.get_playershot
 
         def initialize
-            @player = Player.new
-            @timer = Timer.new(30)
-            @score = Score.new(0)
+            super
+            # @player = Player.new
+            # @timer = Timer.new(30)
+            # @score = Score.new(0)
         end
 
 
         def play
-            @player.update
-            @timer.update
-            @score.update
-            Sprite.update([@@playershot,$Enemies])
+            super
+            # @player.update
+            # @timer.update
+            # @score.update
+            # Sprite.update([@@playershot,$Enemies])
 
             #敵の出現
             @@count += 1
-            if @@count % 100 == 0
+            if @@count % 40 == 0
                 $Enemies << Enemy.new
             end
 
@@ -38,7 +40,7 @@ module Game
             end
 
             #ゲームオーバー
-            if @timer.time < 0
+            if @timer.time <= 0
                 BGM.stop
                 Scene.move_to(:gameover)
             end

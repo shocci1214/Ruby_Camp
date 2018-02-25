@@ -3,6 +3,7 @@ require 'smalrubot'
 require_relative 'Scene'
 require_relative 'Scene/scene_title/director'
 require_relative 'Scene/scene_game/director'
+require_relative 'Scene/scene_game2/director'
 require_relative 'Scene/scene_gameover/director'
 
 #ゲーム名
@@ -16,6 +17,7 @@ Window.height = 600
 #self.add(scene_obj,scene_name)
 Scene.add(Title::Director.new, :title)
 Scene.add(Game::Director.new, :game)
+Scene.add(Game2::Director.new, :game2)
 Scene.add(Gameover::Director.new, :gameover)
 
 #Sounds

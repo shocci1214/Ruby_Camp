@@ -13,7 +13,7 @@ module Game
 
         def initialize
             @player = Player.new
-            @timer = Timer.new(30)
+            @timer = Timer.new(10)
             @score = Score.new(0)
         end
 
@@ -26,7 +26,7 @@ module Game
 
             #敵の出現
             @@count += 1
-            if @@count % 100 == 0
+            if @@count % 50 == 0
                 $Enemies << Enemy.new
             end
 
