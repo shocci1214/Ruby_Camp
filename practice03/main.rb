@@ -15,14 +15,17 @@ Scene.add(Title::Director.new, :title)
 Scene.add(Game::Director.new, :game)
 
 #Sounds
+JUMP_SOUND = Sound.new('./Sound/jump.wav')
 
 #タイトル画面へ移行
 Scene.move_to(:title)
 
+Window.fps = 30
+
 #メインループ
 Window.loop do
     Scene.play
-    
+
     #ESCで終了
     break if Input.key_push?(K_ESCAPE)
 end

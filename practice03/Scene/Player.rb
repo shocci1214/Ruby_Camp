@@ -32,7 +32,8 @@ class Player < Sprite
         @gravity = 2
 
         #天井衝突
-        if(collision_tile(self.x,self.y,@map)== 1 or collision_tile(self.x+31,self.y,@map) == 1)
+        if collision_tile(self.x,self.y,@map)== 1 or collision_tile(self.x+31,self.y,@map) == 1 or
+        collision_tile(self.x,self.y,@map)== 2 or collision_tile(self.x+31,self.y,@map) == 2
             self.y = self.y/32 * 32 + 32
         end
 
@@ -63,6 +64,7 @@ class Player < Sprite
 
         #ジャンプ
         if Input.key_push?(K_SPACE) && @jump_ok
+            JUMP_SOUND.play
             @gravity = -20
         end
 
