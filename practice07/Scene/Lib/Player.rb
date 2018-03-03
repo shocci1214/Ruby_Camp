@@ -42,4 +42,8 @@ class PlayerShot < Sprite
             self.vanish
         end
     end
+
+    def shot
+        self.vanish
+    end
 end

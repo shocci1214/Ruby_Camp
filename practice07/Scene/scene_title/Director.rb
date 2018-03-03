@@ -1,12 +1,12 @@
-require_relative 'Button'
+require_relative '../Lib/Button'
 module Title
     class Director
         def initialize
             #Font
             @font_title = Font.new(30,'MSゴシック')
             #Buttton
-            @button_start = Button.new(200,200,'START',START_SOUND)
-            @button_exit = ExitButton.new(200,300,'EXIT',EXIT_SOUND)
+            @button_start = Button.new(200,200,'START',START_SOUND,to: 'game')
+            @button_exit = Button.new(200,300,'EXIT',EXIT_SOUND,to: 'exit')
         end
 
         def play
