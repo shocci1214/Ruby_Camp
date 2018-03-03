@@ -6,7 +6,7 @@ module Title
             @font_title = Font.new(30,'MSゴシック')
             #Buttton
             @button_start = Button.new(200,200,'START',START_SOUND,to: 'game')
-            @button_exit = Button.new(200,300,'EXIT',EXIT_SOUND,to: 'exit')
+            @button_exit = BackButton.new(200,300,'EXIT',EXIT_SOUND,to: 'exit')
         end
 
         def play

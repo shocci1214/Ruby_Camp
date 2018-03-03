@@ -5,6 +5,13 @@ class Enemy < Sprite
         self.y = 30
         self.image = Image.new(50,50).box_fill(0,0,50,50,[255,255,0,0])
     end
+
+    def self.generator(count,enemies)
+        if count % 1000 == 0
+            enemies << Enemy.new
+        end
+    end
+
     def update
         #描画
         self.draw
@@ -23,9 +30,6 @@ class Enemy < Sprite
     end
 end
 
-#敵の生成
-def enemy_generator
-end
 
 #敵の弾クラス
 class EnemyShot < Sprite

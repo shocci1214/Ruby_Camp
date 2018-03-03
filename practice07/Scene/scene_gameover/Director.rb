@@ -3,7 +3,11 @@ module GameOver
     class Director
         def initialize
             @button_next = Button.new(200,200,'次のステージへ',START_SOUND,to: "game")
-            @button_to_title = Button.new(200,300,'タイトルへもどる',EXIT_SOUND,to:'title')
+            @button_to_title = BackButton.new(200,300,'タイトルへもどる',EXIT_SOUND,to:'title')
+        end
+
+        def self.stage_change
+            Button.stage_count
         end
 
         def play
