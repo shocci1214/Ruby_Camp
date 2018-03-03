@@ -6,8 +6,8 @@ class Enemy < Sprite
         self.image = Image.new(50,50).box_fill(0,0,50,50,[255,255,0,0])
     end
 
-    def self.generator(count,enemies)
-        if count % 1000 == 0
+    def self.generator(count,enemies,num)
+        if count % num == 0
             enemies << Enemy.new
         end
     end

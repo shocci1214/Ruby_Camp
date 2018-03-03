@@ -7,10 +7,11 @@ module Game2
     class Director < Game1::Director
         def initialize
             super
-            @info = Info.new(timer:5,score:0,playerlife:3,stage:1)
+            @info = Info.new(timer:5,score:0,playerlife:3,stage:2)
         end
         def play
             super
+            Enemy.generator(@count,@enemies,500)
         end
     end
 end

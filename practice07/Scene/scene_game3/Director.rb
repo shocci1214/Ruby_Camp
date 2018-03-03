@@ -9,5 +9,9 @@ module Game3
             super()
             @info = Info.new(timer:30,score:0,playerlife:3,stage:3)
         end
+        def play
+            super
+            Enemy.generator(@count,@enemies,300)
+        end
     end
 end

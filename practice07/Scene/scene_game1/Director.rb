@@ -26,7 +26,7 @@ module Game1
             end
 
             #敵の出現
-            Enemy.generator(@count,@enemies)
+            Enemy.generator(@count,@enemies,1000)
 
             @count += 10
 
