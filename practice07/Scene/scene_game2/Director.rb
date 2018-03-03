@@ -12,8 +12,14 @@ module Game2
         end
         def play
             super
+            #敵の弾とプレイヤーの衝突判定
+            if Sprite.check(@enemyshots,@player)
+                DAMAGE_SOUND.play
+                @info.score -= 100
+                @info.playerlife -= 1
+            end
             Sprite.update([@enemyshots])
-            Enemy.generator(@count,@enemies,500)
+            Enemy.generator(count:@count,enemies:@enemies,num: 500,count_rand: 300)
             # Enemy.shot_generator(@count,@enemyshot,1000)
             #衝突判定で消えたオブジェクトを配列から削除
             Sprite.clean([@enemyshots])

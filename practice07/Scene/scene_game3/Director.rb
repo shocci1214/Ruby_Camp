@@ -11,7 +11,8 @@ module Game3
         end
         def play
             super
-            Enemy.generator(@count,@enemies,300)
+            Enemy.generator(count:@count,enemies:@enemies,num: 300,count_rand: 100)
+            
         end
     end
 end

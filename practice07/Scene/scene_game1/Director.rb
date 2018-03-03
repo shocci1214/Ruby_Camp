@@ -11,7 +11,7 @@ module Game1
             @playershots = []
             @enemies = []
             @count = 0
-            @info = Info.new(timer:1,score:0,playerlife:3,stage:1)
+            @info = Info.new(timer:20,score:0,playerlife:3,stage:1)
         end
 
         def play
@@ -26,7 +26,7 @@ module Game1
             end
 
             #敵の出現
-            Enemy.generator(@count,@enemies,1000)
+            Enemy.generator(count:@count,enemies:@enemies,num:1000,count_rand:10)
 
             @count += 10
 
@@ -37,6 +37,7 @@ module Game1
             if @info.timer <= 0
                 BGM_SOUND.stop
                 GameOver::Director.stage_change
+                GameOver::Director.set_score(@info.score)
                 Scene.move_to(:gameover)
             end
         end

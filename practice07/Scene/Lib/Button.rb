@@ -28,7 +28,7 @@ class Button
                 if @to.match(/game.?/)
                     BGM_SOUND.play
                 end
-
+                Enemy.reset_enemyshots
                 Scene.move_to((@to+@@stage_count.to_s).to_sym)
             end
         else
@@ -48,6 +48,7 @@ class BackButton < Button
             if Input.mouse_push?(M_LBUTTON)
                 @sound.play
                 sleep(0.5)
+
                 if @to == "title"
                     Button.stage_reset
                     Scene.add(Game1::Director.new, :game1)

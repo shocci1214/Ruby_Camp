@@ -13,6 +13,7 @@ module Title
             Window.draw_font(200,100,'たいとるがめん',@font_title)
             @button_start.update
             @button_exit.update
+            Window.draw_font(200,400,'←→で左右移動、Zキーで弾発射',@font_title)
         end
     end
 end

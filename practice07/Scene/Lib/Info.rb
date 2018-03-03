@@ -1,5 +1,5 @@
 class Info
-    attr_accessor :score,:timer
+    attr_accessor :score,:timer,:playerlife
     def initialize(timer:,score:,playerlife:,stage:)
         @score = score
         @playerlife = playerlife

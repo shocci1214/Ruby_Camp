@@ -1,22 +1,27 @@
 class Enemy < Sprite
     @@enemyshots = []
-    def initialize
+    def initialize(count_rand)
         super
         self.x = 50
         self.y = 30
         self.image = Image.new(50,50).box_fill(0,0,50,50,[255,255,0,0])
         @count = 0
-        @num = 500
+        @num = count_rand
+        @timer = 0
     end
 
-    def self.generator(count,enemies,num)
+    def self.generator(count:,enemies:,num:500,count_rand:10)
         if count % num == 0
-            enemies << Enemy.new
+            enemies << Enemy.new(count_rand)
         end
     end
 
     def self.get_enemyshots
         @@enemyshots
+    end
+
+    def self.reset_enemyshots
+        @@enemyshots.clear
     end
 
     def update
@@ -25,8 +30,12 @@ class Enemy < Sprite
         #敵機の移動
         self.x += 5
         #敵機の弾の発射
-        if @count % @num == 0
-            @@enemyshots << EnemyShot.new(self.x,self.y)
+        if @timer >= 30
+            if @timer % rand(17..20) == 0
+                if @count % rand(1..@num) == 0
+                    @@enemyshots << EnemyShot.new(self.x,self.y)
+                end
+            end
         end
 
         #画面右端で消滅
@@ -35,6 +44,7 @@ class Enemy < Sprite
         end
 
         @count += 10
+        @timer += 1
     end
 
     def hit
@@ -64,6 +74,9 @@ class EnemyShot < Sprite
 
         self.draw
         self.y += 8
+    end
 
+    def shot(obj)
+        self.vanish
     end
 end

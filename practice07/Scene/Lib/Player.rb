@@ -1,3 +1,4 @@
+require_relative 'Info'
 class Player < Sprite
     def initialize
         super
@@ -23,6 +24,10 @@ class Player < Sprite
             PLAYER_SHOT_SOUND.play
             playershot << PlayerShot.new(self.x,self.y)
         end
+    end
+
+    def hit
+        
     end
 end
 
