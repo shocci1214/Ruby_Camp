@@ -11,7 +11,7 @@ module Game1
             @playershots = []
             @enemies = []
             @count = 0
-            @info = Info.new(timer:5,score:0,playerlife:3,stage:1)
+            @info = Info.new(timer:1,score:0,playerlife:3,stage:1)
         end
 
         def play

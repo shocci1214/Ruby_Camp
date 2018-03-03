@@ -7,11 +7,16 @@ module Game2
     class Director < Game1::Director
         def initialize
             super
-            @info = Info.new(timer:5,score:0,playerlife:3,stage:2)
+            @info = Info.new(timer:20,score:0,playerlife:3,stage:2)
+            @enemyshots = Enemy.get_enemyshots
         end
         def play
             super
+            Sprite.update([@enemyshots])
             Enemy.generator(@count,@enemies,500)
+            # Enemy.shot_generator(@count,@enemyshot,1000)
+            #衝突判定で消えたオブジェクトを配列から削除
+            Sprite.clean([@enemyshots])
         end
     end
 end
